@@ -2,13 +2,14 @@
 
 trait Gps
 {
+  private $minCountMinutes = 60;
   private $priceGps = 15;
 
   public function countingPriceGps($Min)
   {
-    if ($Min < 60) {
-      $Min = 60;
+    if ($Min < $this->minCountMinutes) {
+      $Min = $this->minCountMinutes;
     }
-    return (ceil($Min / 60) * $this->priceGps);
+    return (ceil($Min / $this->minCountMinutes) * $this->priceGps);
   }
 }

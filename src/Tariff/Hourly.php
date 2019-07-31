@@ -1,13 +1,14 @@
 <?php
-require_once 'Tariff.php';
-require_once 'Driver.php';
 
-class HourlyTariff extends Tariff
+class Hourly extends Tariff
 {
   use Driver;
-  public function __construct($age, $gps = false, $isDriver = false)
+
+  private $isDriver;
+
+  public function __construct($priceKm, $priceMin, $age, $gps = false, $isDriver = false)
   {
-    parent::__construct(0, 200, $age, $gps);
+    parent::__construct($priceKm, $priceMin, $age, $gps);
     $this->isDriver = $isDriver;
   }
 
@@ -25,7 +26,7 @@ class HourlyTariff extends Tariff
       $cost += $this->countingPriceGps($timeMin);
     }
     if ($this->isDriver) {
-      $cost += $this->priceDriver;
+      $cost += $this->getPriceDriver();
     }
     return $cost;
   }

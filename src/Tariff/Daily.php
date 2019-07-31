@@ -1,13 +1,14 @@
 <?php
-require_once 'Tariff.php';
-require_once 'Driver.php';
 
-class DailyTariff extends Tariff
+class Daily extends Tariff
 {
   use Driver;
-  public function __construct($age, $gps = false, $isDriver = false)
+
+  private $isDriver;
+
+  public function __construct($priceKm, $priceMin, $age, $gps = false, $isDriver = false)
   {
-    parent::__construct(1, 1000, $age, $gps);
+    parent::__construct($priceKm, $priceMin, $age, $gps);
     $this->isDriver = $isDriver;
   }
 
