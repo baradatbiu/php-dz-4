@@ -16,7 +16,7 @@ abstract class Tariff implements iTariff
   protected $error = '';
   protected $gps = false;
 
-  public function __construct($priceKm, $priceMin, $age, $gps)
+  public function __construct($priceKm, $priceMin, $age, $gps = false)
   {
     $this->priceKm = $priceKm;
     $this->priceMin = $priceMin;
