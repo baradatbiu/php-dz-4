@@ -13,7 +13,6 @@ abstract class Tariff implements iTariff
   protected $priceMin;
   protected $age;
   protected $boostFactor = 1;
-  protected $error = '';
   protected $gps = false;
 
   public function __construct($priceKm, $priceMin, $age, $gps = false)
@@ -33,9 +32,6 @@ abstract class Tariff implements iTariff
 
   public function countingCost($Km, $Min)
   {
-    if ($this->error) {
-      return $this->error;
-    }
     $cost = ($Km * $this->priceKm + $Min * $this->priceMin) * $this->boostFactor;
     if ($this->gps) {
       $cost += $this->countingPriceGps($Min);

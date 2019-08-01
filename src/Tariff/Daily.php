@@ -14,9 +14,6 @@ class Daily extends Tariff
 
   public function countingCost($Km, $Min)
   {
-    if ($this->error) {
-      return $this->error;
-    }
     $arrayTime = explode(':', $Min);
     $day = $arrayTime[0];
     $hours = $arrayTime[1];

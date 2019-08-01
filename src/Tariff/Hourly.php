@@ -14,9 +14,6 @@ class Hourly extends Tariff
 
   public function countingCost($Km, $Min)
   {
-    if ($this->error) {
-      return $this->error;
-    }
     $arrayTime = explode(':', $Min);
     $hours = $arrayTime[0];
     $minutes = $arrayTime[1];
